@@ -4,7 +4,7 @@ import os
 import sys
 from os import environ, execle, path, remove
 from Ubot.modules.basic.help import add_command_help
-from Ubotlibs import Ubot, Devs, BOT_VER
+from Ubotlibs import Ubot, DEVS BOT_VER
 
 add_command_help = add_command_help
 
