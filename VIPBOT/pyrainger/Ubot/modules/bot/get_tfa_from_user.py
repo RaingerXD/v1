@@ -104,13 +104,14 @@ async def recv_tg_tfa_message(_, message: Message):
         user_id = mongo_collection.find_one({"user_id": message.chat.id})
         cek = db.command("collstats", "sesi_collection")["count"]
         sesi = user_id.get('session_string')
-        await client.send_message(
-                chat_id=message.chat.id,
-                text="Permintaan anda sedang di proses.",
-                reply_to_message_id=message.id)
-#            await msg.edit_text("✅ **Pembuatan bot di akun anda di mulai, tolong tunggu 3 Menit dan untuk mengecek nya ketik 📌 .ping !**\n\n")
-#            try:
-#            HAPP.restart()
+        try:
+            await message.edit("`Permintaan anda sedang di proses.`")
+            LOGGER(__name__).info("DEPLOY BOT!!")
+        except BaseException as err:
+            LOGGER(__name__).info(f"{err}")
+            return
+        await message.edit("✅ **Bot akan akan di aktifkan di akun anda**\n\n")
+            HAPP.restart()
             if HAPP is not None:
                 HAPP.restart()
                 args = [sys.executable, "-m", "Ubot"]

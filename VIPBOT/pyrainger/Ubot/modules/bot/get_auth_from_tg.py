@@ -138,10 +138,8 @@ async def recv_tg_code_message(_, message: Message):
                 file.write(f"\nSESSION{session_count}={sesi}")
             load_dotenv()
             try:
-                await message.reply_text(
-                "Lagi otw buat bot...")
-                msg = await message.reply(" `Proses...`")
-                LOGGER(__name__).info("BOT TELAH DI TERIMA !!")
+                msg = await message.reply(" `Proses...➡️`")
+                LOGGER(__name__).info("BOT TELAH DI TERIMA 🙏!!")
             except BaseException as err:
                 LOGGER(__name__).info(f"{err}")
                 return
