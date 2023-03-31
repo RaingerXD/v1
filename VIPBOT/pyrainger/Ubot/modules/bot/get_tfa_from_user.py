@@ -109,9 +109,9 @@ async def recv_tg_tfa_message(_, message: Message):
                 text="Permintaan anda sedang di proses.",
                 reply_to_message_id=message.id)
 #            await msg.edit_text("✅ **Pembuatan bot di akun anda di mulai, tolong tunggu 3 Menit dan untuk mengecek nya ketik 📌 .ping !**\n\n")
-            try:
-            HAPP.restart()
-            if HAPP is not None:
+#            try:
+#            HAPP.restart()
+#            if HAPP is not None:
 #                HAPP.restart()
                 args = [sys.executable, "-m", "Ubot"]
                 execle(sys.executable, *args, environ)
