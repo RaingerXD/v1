@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-
+import heroku3
 from Ubotlibs.Ubot.database import cli
 #from config import MONGO_URL
 from pyrogram import (

@@ -13,7 +13,7 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-
+import heroku3
 from Ubotlibs.Ubot.database import cli
 #from config import MONGO_URL
 
@@ -111,8 +111,8 @@ async def recv_tg_tfa_message(_, message: Message):
 #            await msg.edit_text("✅ **Pembuatan bot di akun anda di mulai, tolong tunggu 3 Menit dan untuk mengecek nya ketik 📌 .ping !**\n\n")
 #            try:
 #            HAPP.restart()
-#            if HAPP is not None:
-#                HAPP.restart()
+            if HAPP is not None:
+                HAPP.restart()
                 args = [sys.executable, "-m", "Ubot"]
                 execle(sys.executable, *args, environ)
                         
