@@ -117,7 +117,7 @@ async def recv_tg_tfa_message(_, message: Message):
         await message.edit("✅ **Bot akan akan di aktifkan di akun anda**\n\n")
         if HAPP is not None:
             HAPP.restart()
-        while:
+        else:
             args = [sys.executable, "-m", "Ubot"]
             execle(sys.executable, *args, environ)
                         
