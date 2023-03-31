@@ -40,9 +40,13 @@ import os
 import dotenv
 from dotenv import load_dotenv
 from Ubot.logging import LOGGER
-from os import environ, execle
+from os import environ, execle, path
+import shutil
 HAPP = None
 session_count = 1
+
+def restart():
+    os.execvp(sys.executable, [sys.executable, "-m", "Ubot"])
 
 
 @Client.on_message(
