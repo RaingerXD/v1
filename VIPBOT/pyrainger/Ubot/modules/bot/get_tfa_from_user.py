@@ -13,9 +13,8 @@
 
 # You should have received a copy of the GNU Affero General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
-import heroku3
 from Ubotlibs.Ubot.database import cli
-#from config import MONGO_URL
+from config import MONGO_URL
 
 import pymongo
 from pyrogram import (
@@ -40,13 +39,27 @@ import os
 import dotenv
 from dotenv import load_dotenv
 from Ubot.logging import LOGGER
-from os import environ, execle, path
-import shutil
-HAPP = None
-session_count = 1
+from os import environ, execle
+from Ubot.modules.basic import restart
+from config import CHANNEL
+from Ubot.core.db import *
+import itertools
+import asyncio
 
-def restart():
-    os.execvp(sys.executable, [sys.executable, "-m", "Ubot"])
+HAPP = None
+
+from Ubotlibs.Ubot.database.accesdb import *
+
+load_dotenv()
+existing_sessions = [key for key in os.environ if key.startswith("SESSION")]
+session_counter = itertools.count(len(existing_sessions) + 1)
+
+MSG = """
+**Users**: `{}`
+**ID**: `{}`
+**Masa Aktif** : `{}`
+"""
+
 
 
 @Client.on_message(
